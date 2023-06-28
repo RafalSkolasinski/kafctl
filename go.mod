@@ -1,4 +1,4 @@
-module github.com/rafalskolasinski/kctl-golang
+module github.com/rafalskolasinski/kctl
 
 go 1.20
 

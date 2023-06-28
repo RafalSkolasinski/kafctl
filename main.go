@@ -3,12 +3,12 @@ package main
 import (
 	"log"
 
-	"github.com/rafalskolasinski/kctl-golang/cmd/kctl"
+	"github.com/rafalskolasinski/kctl/cmd"
 )
 
 func main() {
 	log.SetFlags(0)
-	err := kctl.Execute()
+	err := cmd.Execute()
 	if err != nil {
 		log.Fatalf("Error: %s", err)
 	}

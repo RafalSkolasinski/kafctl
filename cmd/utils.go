@@ -1,11 +1,11 @@
-package kctl
+package cmd
 
 import (
 	"fmt"
 	"log"
 	"os"
 
-	"github.com/rafalskolasinski/kctl-golang/pkg/config"
+	"github.com/rafalskolasinski/kctl/pkg/config"
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 )

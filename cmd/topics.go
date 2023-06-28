@@ -1,9 +1,9 @@
-package kctl
+package cmd
 
 import (
 	"log"
 
-	"github.com/rafalskolasinski/kctl-golang/pkg/topics"
+	"github.com/rafalskolasinski/kctl/pkg/topics"
 	"github.com/spf13/cobra"
 )
 

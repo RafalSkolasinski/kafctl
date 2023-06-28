@@ -1,4 +1,4 @@
-package kctl
+package cmd
 
 import (
 	"github.com/RafalSkolasinski/dedent"
@@ -10,10 +10,10 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "kafka-cli",
+	Use:   "kctl",
 	Short: "A simple CLI for testing Kafka configs",
 	Long: dedent.Dedent(`
-		Helper tool to test various Kafka configurations and cloud offerings.
+		Helper tool to test various Kafka configurations.
 	`),
 	// Uncomment the following line if your bare application
 	// has an action associated with it:

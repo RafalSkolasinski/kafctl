@@ -1,2 +1,3 @@
-# kctl-golang
-Simple CLI to test Kafka configurations
+# kctl
+
+Simple CLI to test Kafka configurations.
