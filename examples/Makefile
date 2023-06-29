@@ -23,4 +23,4 @@ get-client-ca:
 .ONESHELL: get-sasl-password
 get-sasl-password:
 	PASSWORD=$$(kubectl get secret -n ${CLUSTER_NAMESPACE} sasl -o json | jq .data.password -r | base64 -d)
-	sed -i "s/sasl.password=.*/sasl.password=$${PASSWORD}/" configs/sasl.properties
+	sed "s/sasl.password=.*/sasl.password=$${PASSWORD}/" configs/sasl.properties.template > configs/sasl.properties

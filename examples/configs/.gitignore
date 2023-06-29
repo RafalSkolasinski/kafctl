@@ -2,3 +2,5 @@ client.ca.crt
 client.user.crt
 client.user.key
 broker.ca.crt
+
+sasl.properties
