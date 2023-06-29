@@ -78,10 +78,20 @@ Example manifest can be found under `examples/kctl.yaml`.
 Deploy with
 
 ```bash
-make -C examples deploy
+$ make -C examples deploy
+make: Entering directory '/home/rskolasinski/private/projects/kctl/examples'
+kubectl apply -f kctl.yaml
+secret/kctl-config created
+pod/kctl created
+make: Leaving directory '/home/rskolasinski/private/projects/kctl/examples'
 ```
 
 Use deployed pod with
 ```bash
-kubectl exec -it kctl -- kctl get topics -c configs/plaintext.properties
+$ kubectl exec -it kctl -- kctl get topics -c configs/plaintext.properties
+CONFIGURATION security.protocol: PLAINTEXT
+CONFIGURATION bootstrap.servers: default-kafka-plain-bootstrap.kafka.svc.cluster.local:9092
+Topic (partitions: 2): my-new-topic
+Topic (partitions: 50): __consumer_offsets
+Topic (partitions: 2): my-topic
 ```
