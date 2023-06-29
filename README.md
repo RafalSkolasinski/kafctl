@@ -5,7 +5,7 @@ Simple CLI to test Kafka configurations.
 ## Installation
 
 ```bash
-go install github.com/rafalskolasinski/kctl@latest
+go install github.com/RafalSkolasinski/kctl@latest
 ```
 
 or run `make install` command from root of the repository.
