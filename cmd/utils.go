@@ -27,6 +27,9 @@ func readConfig(path string) *kafka.ConfigMap {
 
 func logConfig(config *kafka.ConfigMap) {
 	for k, v := range *config {
+		if k == "sasl.password" {
+			v = "<CENSORED>"
+		}
 		fmt.Printf("CONFIGURATION %s: ", k)
 		fmt.Println(v)
 	}

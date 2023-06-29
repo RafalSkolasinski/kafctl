@@ -21,7 +21,7 @@ var getTopics = &cobra.Command{
 }
 
 var createTopics = &cobra.Command{
-	Use:   "topic <topic-1> [<topic-2> ...]",
+	Use:   "topics <topic-1> [<topic-2> ...]",
 	Short: "Create topic(s)",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
@@ -35,7 +35,7 @@ var createTopics = &cobra.Command{
 }
 
 var removeTopics = &cobra.Command{
-	Use:   "topic <topic-1> [<topic-2> ...]",
+	Use:   "topics <topic-1> [<topic-2> ...]",
 	Short: "Remove topic(s)",
 	Run: func(cmd *cobra.Command, args []string) {
 		config := readConfig(cfgFile)

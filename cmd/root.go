@@ -44,7 +44,7 @@ func Execute() error {
 
 func init() {
 	// Top Level Flags
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "./client.properties", "config file")
+	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "./client.properties", "config file")
 
 	// Commands that represents action on specific resource
 	rootCmd.AddCommand(getCmd)
