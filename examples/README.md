@@ -24,7 +24,7 @@ make get-broker-ca get-client-ca get-sasl-password
 
 ## Trying different configuration
 
-See example configurations under `configs` folder.
+See example configurations under `kctl/examples/configs` folder.
 Choose one you want to try using `-c` flag, e.g.
 
 ```bash
