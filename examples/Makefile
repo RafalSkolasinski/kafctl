@@ -24,3 +24,10 @@ get-client-ca:
 get-sasl-password:
 	PASSWORD=$$(kubectl get secret -n ${CLUSTER_NAMESPACE} sasl -o json | jq .data.password -r | base64 -d)
 	sed "s/sasl.password=.*/sasl.password=$${PASSWORD}/" configs/sasl.properties.template > configs/sasl.properties
+
+
+deploy:
+	kubectl apply -f kctl.yaml
+
+remove:
+	kubectl delete --grace-period=1 -f kctl.yaml || echo "already removed"

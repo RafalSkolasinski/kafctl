@@ -18,4 +18,5 @@ RUN apk --no-cache add gcompat ca-certificates nano
 
 COPY --from=builder /work/kctl /usr/local/bin/
 
+WORKDIR /work
 ENTRYPOINT [ "sh" ]

@@ -26,7 +26,7 @@ Created: my-new-topic (Topic 'my-new-topic' already exists.)
 ### Listing Topics
 
 ```bash
-$ kctl get topics -c configs/plaintext.properties my-new-topic
+$ kctl get topics -c configs/plaintext.properties
 CONFIGURATION bootstrap.servers: 172.18.255.92:9092
 CONFIGURATION security.protocol: PLAINTEXT
 Topic (partitions: 2): my-topic
@@ -68,4 +68,20 @@ Delivered message to my-topic[0]@26
 Delivered message to my-topic[0]@27
 Delivered message to my-topic[0]@28
 Delivered message to my-topic[0]@29
+```
+
+
+### Testing from inside K8s cluster
+
+Example manifest can be found under `examples/kctl.yaml`.
+
+Deploy with
+
+```bash
+make -C examples deploy
+```
+
+Use deployed pod with
+```bash
+kubectl exec -it kctl -- kctl get topics -c configs/plaintext.properties
 ```
