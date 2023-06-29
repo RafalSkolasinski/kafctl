@@ -1,0 +1,95 @@
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: default
+spec:
+  entityOperator:
+    userOperator: {}
+  kafka:
+    replicas: 3
+    version: 3.3.1
+    config:
+      num.partitions: 4
+      auto.create.topics.enable: true
+      default.replication.factor: 1
+      inter.broker.protocol.version: 3.3
+      min.insync.replicas: 1
+      offsets.topic.replication.factor: 1
+      transaction.state.log.min.isr: 1
+      transaction.state.log.replication.factor: 1
+
+    listeners:
+    - name: plain
+      port: 9092
+      tls: false
+      type: loadbalancer
+      configuration:
+        bootstrap:
+          annotations:
+            metallb.universe.tf/loadBalancerIPs: 172.18.255.92
+
+    - name: sasl
+      port: 9093
+      tls: true
+      type: loadbalancer
+      authentication:
+        type: scram-sha-512
+      configuration:
+        bootstrap:
+          annotations:
+            metallb.universe.tf/loadBalancerIPs: 172.18.255.93
+
+    - name: tls
+      port: 9094
+      tls: true
+      type: loadbalancer
+      configuration:
+        bootstrap:
+          annotations:
+            metallb.universe.tf/loadBalancerIPs: 172.18.255.94
+
+    - name: mtls
+      port: 9095
+      tls: true
+      type: loadbalancer
+      authentication:
+        type: tls
+      configuration:
+        bootstrap:
+          annotations:
+            metallb.universe.tf/loadBalancerIPs: 172.18.255.95
+
+    storage:
+      type: ephemeral
+
+  zookeeper:
+    replicas: 1
+    storage:
+      type: ephemeral
+
+---
+
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    strimzi.io/cluster: default
+  name: sasl
+  namespace: kafka
+spec:
+  authentication:
+    type: scram-sha-512
+
+---
+
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    strimzi.io/cluster: default
+  name: mtls
+  namespace: kafka
+spec:
+  authentication:
+    type: tls
