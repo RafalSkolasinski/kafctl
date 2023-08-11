@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/rafalskolasinski/kctl/cmd"
+	"github.com/rafalskolasinski/kafctl/cmd"
 )
 
 func main() {

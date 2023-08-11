@@ -1,4 +1,4 @@
-module github.com/rafalskolasinski/kctl
+module github.com/rafalskolasinski/kafctl
 
 go 1.20
 

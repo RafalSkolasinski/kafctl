@@ -1,4 +1,4 @@
-name: Build and push kctl docker image
+name: Build and push kafctl docker image
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  kctl:
+  kafctl:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Git Commit

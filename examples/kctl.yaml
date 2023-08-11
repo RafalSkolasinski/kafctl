@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: kctl-config
+  name: kafctl-config
 type: Opaque
 stringData:
   plaintext.properties: |
@@ -14,11 +14,11 @@ stringData:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kctl
+  name: kafctl
 spec:
   containers:
-  - name: kctl
-    image: rafalskolasinski/kctl:latest
+  - name: kafctl
+    image: rafalskolasinski/kafctl:latest
     command: ["/bin/sh", "-c", "--"]
     args: ["while true; do sleep 30; done;"]
     volumeMounts:
@@ -28,4 +28,4 @@ spec:
   volumes:
   - name: config-volume
     secret:
-      secretName: kctl-config
+      secretName: kafctl-config

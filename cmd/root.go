@@ -10,7 +10,7 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "kctl",
+	Use:   "kafctl",
 	Short: "A simple CLI for testing Kafka configs",
 	Long: dedent.Dedent(`
 		Helper tool to test various Kafka configurations.

@@ -27,7 +27,7 @@ get-sasl-password:
 
 
 deploy:
-	kubectl apply -f kctl.yaml
+	kubectl apply -f kafctl.yaml
 
 remove:
-	kubectl delete --grace-period=1 -f kctl.yaml || echo "already removed"
+	kubectl delete --grace-period=1 -f kafctl.yaml || echo "already removed"

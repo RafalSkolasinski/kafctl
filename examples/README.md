@@ -24,9 +24,9 @@ make get-broker-ca get-client-ca get-sasl-password
 
 ## Trying different configuration
 
-See example configurations under `kctl/examples/configs` folder.
+See example configurations under `kafctl/examples/configs` folder.
 Choose one you want to try using `-c` flag, e.g.
 
 ```bash
-$ kctl get messages -c configs/plaintext.properties my-topic
+$ kafctl get messages -c configs/plaintext.properties my-topic
 ```
