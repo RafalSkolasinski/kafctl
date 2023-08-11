@@ -16,7 +16,7 @@ FROM alpine:latest
 
 RUN apk --no-cache add gcompat ca-certificates nano
 
-COPY --from=builder /work/kctl /usr/local/bin/
+COPY --from=builder /work/kafctl /usr/local/bin/
 
 WORKDIR /work
 ENTRYPOINT [ "sh" ]

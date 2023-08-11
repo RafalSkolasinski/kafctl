@@ -1,6 +1,6 @@
 LATEST_TAG ?= latest
 
-IMAGE_NAME ?= rafalskolasinski/kctl
+IMAGE_NAME ?= rafalskolasinski/kafctl
 IMAGE_VERSION ?= ${LATEST_TAG}
 
 install:

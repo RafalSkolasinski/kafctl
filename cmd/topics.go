@@ -3,7 +3,7 @@ package cmd
 import (
 	"log"
 
-	"github.com/rafalskolasinski/kctl/pkg/topics"
+	"github.com/rafalskolasinski/kafctl/pkg/topics"
 	"github.com/spf13/cobra"
 )
 

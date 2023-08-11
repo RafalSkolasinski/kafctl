@@ -1,11 +1,11 @@
-# kctl
+# kafctl
 
 Simple CLI to test Kafka configurations.
 
 ## Installation
 
 ```bash
-go install github.com/RafalSkolasinski/kctl@latest
+go install github.com/rafalskolasinski/kafctl@latest
 ```
 
 or run `make install` command from root of the repository.
@@ -17,7 +17,7 @@ See [examples](./examples/README.md) for different configuration examples.
 ### Creating Topics
 
 ```bash
-$ kctl create topics -c configs/plaintext.properties my-new-topic
+$ kafctl create topics -c configs/plaintext.properties my-new-topic
 CONFIGURATION bootstrap.servers: 172.18.255.92:9092
 CONFIGURATION security.protocol: PLAINTEXT
 Created: my-new-topic (Topic 'my-new-topic' already exists.)
@@ -26,7 +26,7 @@ Created: my-new-topic (Topic 'my-new-topic' already exists.)
 ### Listing Topics
 
 ```bash
-$ kctl get topics -c configs/plaintext.properties
+$ kafctl get topics -c configs/plaintext.properties
 CONFIGURATION bootstrap.servers: 172.18.255.92:9092
 CONFIGURATION security.protocol: PLAINTEXT
 Topic (partitions: 2): my-topic
@@ -37,7 +37,7 @@ Topic (partitions: 50): __consumer_offsets
 ### Listening for Messages
 
 ```bash
-kctl get messages -c configs/plaintext.properties my-topic
+kafctl get messages -c configs/plaintext.properties my-topic
 CONFIGURATION bootstrap.servers: 172.18.255.92:9092
 CONFIGURATION security.protocol: PLAINTEXT
 Message on my-topic[1]@31: {"key":"2ed0c7aa","message":"msg-1"}
@@ -55,7 +55,7 @@ Message on my-topic[0]@41: {"key":"f89a2e88","message":"msg-8"}
 ### Sending for Messages
 
 ```bash
-$ kctl create messages -c configs/plaintext.properties my-topic
+$ kafctl create messages -c configs/plaintext.properties my-topic
 CONFIGURATION bootstrap.servers: 172.18.255.92:9092
 CONFIGURATION security.protocol: PLAINTEXT
 Delivered message to my-topic[1]@15
@@ -73,22 +73,22 @@ Delivered message to my-topic[0]@29
 
 ### Testing from inside K8s cluster
 
-Example manifest can be found under `examples/kctl.yaml`.
+Example manifest can be found under `examples/kafctl.yaml`.
 
 Deploy with
 
 ```bash
 $ make -C examples deploy
-make: Entering directory '/home/rskolasinski/private/projects/kctl/examples'
-kubectl apply -f kctl.yaml
-secret/kctl-config created
-pod/kctl created
-make: Leaving directory '/home/rskolasinski/private/projects/kctl/examples'
+make: Entering directory '/home/rskolasinski/private/projects/kafctl/examples'
+kubectl apply -f kafctl.yaml
+secret/kafctl-config created
+pod/kafctl created
+make: Leaving directory '/home/rskolasinski/private/projects/kafctl/examples'
 ```
 
 Use deployed pod with
 ```bash
-$ kubectl exec -it kctl -- kctl get topics -c configs/plaintext.properties
+$ kubectl exec -it kafctl -- kafctl get topics -c configs/plaintext.properties
 CONFIGURATION security.protocol: PLAINTEXT
 CONFIGURATION bootstrap.servers: default-kafka-plain-bootstrap.kafka.svc.cluster.local:9092
 Topic (partitions: 2): my-new-topic
